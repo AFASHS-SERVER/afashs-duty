@@ -27,7 +27,7 @@ repositories {
 
 dependencies {
     compileOnly 'com.github.jaeukkang12:afashs-lib:1.0.2'
-//    compileOnly 'com.github.jaeukkang12:afashs-money:1.0.0'
+    compileOnly 'com.github.jaeukkang12:afashs-money:1.0.1'
     compileOnly 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
 }
 
@@ -49,5 +49,5 @@ tasks.withType(JavaCompile) {
 
 
 jar {
-    destinationDirectory.set(file("C:/Users/rkdwo/OneDrive/바탕 화면/항붕이섭/plugins"))
+    destinationDirectory.set(file("C:/Users/rkdwo/OneDrive/바탕 화면/항붕섭/plugins"))
 }
