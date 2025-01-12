@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'com.github.jaeukkang12'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(22)
+    }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+    maven {
+        url = 'http://jaeukkang12.kro.kr:8081/repository/maven-public/'
+        allowInsecureProtocol = true
+    }
+}
+
+dependencies {
+    compileOnly 'com.github.jaeukkang12:afashs-lib:1.0.2'
+//    compileOnly 'com.github.jaeukkang12:afashs-money:1.0.0'
+    compileOnly 'io.papermc.paper:paper-api:1.20.6-R0.1-SNAPSHOT'
+}
+
+ext {
+    set("pluginName", project.name)
+    name = pluginName.split("-").join("").replace("afashs", "")
+    set("className", name.substring(0, 1).toUpperCase() + name.substring(1))
+    set("packageName", project.name.replace("-","").replace("afashs",""))
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+    processResources {
+        filesMatching("*.yml") {
+            expand(project.properties)
+        }
+    }
+}
+
+
+jar {
+    destinationDirectory.set(file("C:/Users/rkdwo/OneDrive/바탕 화면/항붕이섭/plugins"))
+}
