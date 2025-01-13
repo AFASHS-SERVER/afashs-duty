@@ -80,7 +80,7 @@ public final class Duty extends JavaPlugin {
                 for (OfflinePlayer p : Bukkit.getOfflinePlayers()) {
                     Player player = p.getPlayer();
                     // DUTY
-                    int duty = (int) (economy.getMoney((player.getPlayer())) * 0.04);
+                    double duty = Math.round(economy.getMoney((player.getPlayer())) * 0.04);
                     economy.removeMoney(player.getPlayer(), duty);
 
                     // MESSAGE
